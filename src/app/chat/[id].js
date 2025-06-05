@@ -10,6 +10,7 @@ export default function ChatScreen() {
 	return (
 		<View>
 			<Text>ChatScreen {chat.id}</Text>
+			<Text style={{ color: "white" }}>ChatScreen {chat.title}</Text>
 		</View>
 	);
 }

@@ -16,7 +16,7 @@ export default function ChatInput() {
 		>
 			<TextInput
 				placeholder="Ask anything"
-				placeholderTextColor="grey"
+				placeholderTextColor="#fff"
 				multiline
 				style={{ paddingTop: 24, paddingBottom: 8, paddingHorizontal: 16 }}
 			/>
