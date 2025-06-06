@@ -11,10 +11,18 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { useState } from "react";
 
-export default function ChatInput() {
+export default function ChatInput({ onSend }) {
 	const insets = useSafeAreaInsets();
 	const [message, setMessage] = useState("");
 
+	const handleSend = async () => {
+		setMessage("");
+		try {
+			await onSend(message);
+		} catch (error) {
+			console.log("error", error);
+		}
+	};
 	return (
 		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 			<View style={{ flex: 1 }}>
@@ -53,24 +61,47 @@ export default function ChatInput() {
 							}}
 						>
 							<MaterialCommunityIcons name="plus" size={24} color="white" />
-							<View
-								style={{
-									flexDirection: "row",
-									marginLeft: "auto",
-									backgroundColor: "white",
-									borderRadius: 9999,
-									padding: 8,
-									alignItems: "center",
-									gap: 4,
-								}}
-							>
-								<MaterialCommunityIcons
-									name="account-voice"
-									size={15}
-									color="black"
-								/>
-								<Text style={{ color: "black", fontSize: 12 }}>Voice</Text>
-							</View>
+
+							{message ? (
+								<View
+									style={{
+										flexDirection: "row",
+										marginLeft: "auto",
+										backgroundColor: "white",
+										borderRadius: 9999,
+										padding: 8,
+										alignItems: "center",
+										gap: 4,
+									}}
+								>
+									<MaterialCommunityIcons
+										name="send"
+										size={15}
+										color="black"
+										disabled={loading}
+										onPress={handleSend}
+									/>
+								</View>
+							) : (
+								<View
+									style={{
+										flexDirection: "row",
+										marginLeft: "auto",
+										backgroundColor: "white",
+										borderRadius: 9999,
+										padding: 8,
+										alignItems: "center",
+										gap: 4,
+									}}
+								>
+									<MaterialCommunityIcons
+										name="account-voice"
+										size={15}
+										color="black"
+									/>
+									<Text style={{ color: "black", fontSize: 12 }}>Voice</Text>
+								</View>
+							)}
 						</View>
 					</View>
 				</KeyboardAvoidingView>
