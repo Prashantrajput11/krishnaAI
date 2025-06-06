@@ -10,10 +10,6 @@ export default function HomeScreen() {
 			style={{ flex: 1 }}
 			resizeMode="cover" // or "contain", "stretch", "repeat", "center"
 		>
-			<View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
-				{/* Optional overlay */}
-				<Text className="text-center text-3xl text-white">Home</Text>
-			</View>
 			<ChatInput />
 		</ImageBackground>
 	);
