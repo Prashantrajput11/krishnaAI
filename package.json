@@ -9,6 +9,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "2.1.2",
     "@react-navigation/drawer": "^7.3.9",
     "expo": "~53.0.10",
     "expo-constants": "~17.1.6",
@@ -23,12 +24,13 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "typescript": "~5.8.3",
-    "@types/react": "~19.0.10"
+    "@types/react": "~19.0.10",
+    "typescript": "~5.8.3"
   },
   "private": true
 }

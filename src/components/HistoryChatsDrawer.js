@@ -5,10 +5,13 @@ import {
 	DrawerItemList,
 } from "@react-navigation/drawer";
 import { usePathname, router } from "expo-router";
-import chatHistory from "../../assets/data/chatHistory.json";
+// import chatHistory from "../../assets/data/chatHistory.json";
+import { useChatStore } from "../store/useChatStore";
 
 export default function CustomDrawerContent(props) {
 	const pathname = usePathname();
+
+	const chatHistory = useChatStore((state) => state.chatHistory);
 
 	return (
 		<DrawerContentScrollView {...props}>

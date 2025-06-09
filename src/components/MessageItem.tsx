@@ -5,6 +5,8 @@ import Markdown from "react-native-markdown-display";
 const MessageItem = ({ messageItem }) => {
 	const isUserMessage = messageItem.role === "user";
 
+	console.log("messageItem", messageItem);
+
 	return (
 		<View
 			style={[
